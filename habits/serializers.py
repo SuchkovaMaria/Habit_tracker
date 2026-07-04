@@ -2,7 +2,7 @@ from recurrence.fields import RecurrenceField
 from rest_framework import serializers
 
 from habits.models import Habit
-from habits.validators import validete_time_to_execute, validete_frequency_reward
+from habits.validators import validete_frequency_reward, validete_time_to_execute
 
 
 class HabitSerializer(serializers.ModelSerializer):

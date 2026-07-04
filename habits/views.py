@@ -1,11 +1,10 @@
+from django.db.models import Q
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from habits.models import Habit
 from habits.pagination import CustomPagination
 from habits.serializers import HabitSerializer
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from django.db.models import Q
-
 from users.permissions import IsOwner
 
 
