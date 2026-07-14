@@ -85,6 +85,9 @@ services:
       - celery
     env_file:
       - ./.env
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings  # ← Добавить эту строку
+      - PYTHONPATH=/app
     networks:
       - foo
     restart: always
