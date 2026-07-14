@@ -7,10 +7,15 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock* ./
 
 # Устанавливаем зависимости системы
-RUN pip install poetry==2.2.1 && poetry config virtualenvs.create false && poetry update
+RUN pip install poetry==2.2.1 && \
+    poetry config virtualenvs.create false && \
+    poetry install --no-interaction --no-ansi --no-root
 
 # Копируем исходный код приложения в контейнер
 COPY . .
+
+# Устанавливаем сам проект
+RUN poetry install --no-interaction --no-ansi
 
 # Пробрасываем порт, который будет использовать Django
 EXPOSE 8000
