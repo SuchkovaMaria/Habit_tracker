@@ -86,8 +86,13 @@ services:
     env_file:
       - ./.env
     environment:
-      - DJANGO_SETTINGS_MODULE=config.settings  # ← Добавить эту строку
+      - DJANGO_SETTINGS_MODULE=config.settings
       - PYTHONPATH=/app
+      - NAME=${NAME}
+      - USER=${USER}
+      - PASSWORD=${PASSWORD}
+      - HOST=db
+      - PORT=5432
     networks:
       - foo
     restart: always
