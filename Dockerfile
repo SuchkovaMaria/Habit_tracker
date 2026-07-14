@@ -14,9 +14,6 @@ RUN pip install poetry==2.2.1 && \
 # Копируем исходный код приложения в контейнер
 COPY . .
 
-# Устанавливаем сам проект
-RUN poetry install --no-interaction --no-ansi
-
 # Пробрасываем порт, который будет использовать Django
 EXPOSE 8000
 
