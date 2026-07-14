@@ -64,7 +64,7 @@ class HabitTestCase(APITestCase):
             "time_to_execute": "89",
             "frequency_of_execution": "Ежедневно",
             "reward": "test_reward",
-            "owner": 1,
+            "owner": self.user.pk,
         }
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -83,7 +83,7 @@ class HabitTestCase(APITestCase):
             "time_to_execute": "89",
             "frequency_of_execution": "Ежедневно",
             "reward": "test_reward",
-            "owner": 1,
+            "owner": self.user.pk,
         }
         response = self.client.post(url, data)
         print("\nОШИБКИ ВАЛИДАЦИИ:", response.data.get("non_field_errors"))
@@ -105,7 +105,7 @@ class HabitTestCase(APITestCase):
             "time_to_execute": "130",
             "frequency_of_execution": "Ежедневно",
             "reward": "test_reward",
-            "owner": 1,
+            "owner": self.user.pk,
         }
         response = self.client.post(url, data)
         print("\nОШИБКИ ВАЛИДАЦИИ:", response.data.get("time_to_execute"))
@@ -129,7 +129,7 @@ class HabitTestCase(APITestCase):
             "time_to_execute": "120",
             "frequency_of_execution": "Ежедневно",
             "reward": "test_reward",
-            "owner": 1,
+            "owner": self.user.pk,
         }
         response = self.client.post(url, data)
         print("\nОШИБКИ ВАЛИДАЦИИ:", response.data.get("non_field_errors"))
